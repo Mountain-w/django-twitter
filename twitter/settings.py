@@ -173,7 +173,8 @@ AWS_S3_REGION_NAME = 'us-west-1'
 MEDIA_ROOT = 'media/'
 
 # https://docs.djangoproject.com/en/3.1/topics/cache/
-# use `pip install python-memcached`
+# memcached 安装方法: apt-get install memcached
+# 然后安装 python 的 memcached 客户端：use `pip install python-memcached`
 # DO NOT pip install memcache or django-memcached
 CACHES = {
     'default': {
@@ -188,6 +189,15 @@ CACHES = {
         'KEY_PREFIX': 'testing',
     },
 }
+
+# Redis
+# 安装方法: sudo apt-get install redis
+# 然后安装 redis 的 python 客户端： pip install redis
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = 6379
+REDIS_DB = 0 if TESTING else 1
+REDIS_KEY_EXPIRE_TIME = 7 * 86400  # in seconds
+
 
 try:
     from .local_settings import *
