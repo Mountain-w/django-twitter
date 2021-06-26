@@ -59,12 +59,20 @@ class RedisHelper:
     def incr_count(cls, obj, attr):
         conn = RedisClient.get_connection()
         key = cls.get_count_key(obj, attr)
+        if not conn.exists(key):
+            conn.set(key, getattr(obj, attr))
+            conn.expire(key, settings.REDIS_KEY_EXPIRE_TIME)
+            return getattr(obj, attr)
         return conn.incr(key)
 
     @classmethod
     def decr_count(cls, obj, attr):
         conn = RedisClient.get_connection()
         key = cls.get_count_key(obj, attr)
+        if not conn.exists(key):
+            conn.set(key, getattr(obj, attr))
+            conn.expire(key, settings.REDIS_KEY_EXPIRE_TIME)
+            return getattr(obj, attr)
         return conn.decr(key)
 
     @classmethod
