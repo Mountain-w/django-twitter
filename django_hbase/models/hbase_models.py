@@ -41,8 +41,6 @@ class HBaseModel:
     def __init__(self, **kwargs):
         for key, field in self.get_field_hash().items():
             value = kwargs.get(key)
-            if field.auto_now_add and value is None:
-                value = int(time.time() * 1000000)
             setattr(self, key, value)
 
     @classmethod
