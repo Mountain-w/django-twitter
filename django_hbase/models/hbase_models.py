@@ -1,8 +1,6 @@
 from django_hbase.models import HBaseField, IntegerField, TimestampField
 from django_hbase.client import HBaseClient
 
-import time
-
 
 class BadRowKeyError(Exception):
     pass
@@ -27,7 +25,7 @@ class HBaseModel:
 
     @property
     def row_key(self):
-        return self.serialize_row_key(self.__dict__, is_prefix=False)
+        return self.serialize_row_key(self.__dict__)
 
     @classmethod
     def get_field_hash(cls):
@@ -56,7 +54,7 @@ class HBaseModel:
         return cls(**data)
 
     @classmethod
-    def serialize_row_key(cls, data, is_prefix=True):
+    def serialize_row_key(cls, data):
         """
         serialize dict to bytes (not str)
         {key1: val1} => b"val1"
@@ -70,9 +68,7 @@ class HBaseModel:
                 continue
             value = data.get(key)
             if value is None:
-                if not is_prefix:
-                    raise BadRowKeyError(f"{key} is missing in row key")
-                break
+                raise BadRowKeyError(f"{key} is missing in row key")
             value = cls.serialize_field(field, value)
             if ':' in value:
                 raise BadRowKeyError(f"{key} should not contain ':' in value: {value}")
