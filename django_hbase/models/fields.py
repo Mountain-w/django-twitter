@@ -4,10 +4,6 @@ class HBaseField:
     def __init__(self, reverse=False, column_family=None):
         self.reverse = reverse
         self.column_family = column_family
-
-        # for timestamp field only
-        self.auto_now_add = None
-
         # <HOMEWORK>
         # 增加 is_required 属性，默认为 true 和 default 属性，默认 None。
         # 并在 HbaseModel 中做相应的处理，抛出相应的异常信息
@@ -25,4 +21,3 @@ class TimestampField(HBaseField):
 
     def __init__(self, *args, auto_now_add=False, **kwargs):
         super(TimestampField, self).__init__( *args, **kwargs)
-        self.auto_now_add = auto_now_add
