@@ -13,12 +13,12 @@ from utils.redis_client import RedisClient
 
 
 class TestCase(DjangoTestCase):
-    created_hbase_tables = False
+    hbase_tables_created = False
 
     def setUp(self):
         self.clear_cache()
         try:
-            self.created_hbase_tables = True
+            self.hbase_tables_created = True
             for hbase_model_class in HBaseModel.__subclasses__():
                 hbase_model_class.create_table()
         except Exception:
@@ -26,7 +26,7 @@ class TestCase(DjangoTestCase):
             raise
 
     def tearDown(self):
-        if not self.created_hbase_tables:
+        if not self.hbase_tables_created:
             return
         for hbase_model_class in HBaseModel.__subclasses__():
             hbase_model_class.drop_table()
