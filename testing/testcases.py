@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.cache import caches
 from django.test import TestCase as DjangoTestCase
 from django_hbase.models import HBaseModel
-from friendships.models import Friendship
+from friendships.services import FriendshipService
 from likes.models import Like
 from newsfeeds.models import NewsFeed
 from rest_framework.test import APIClient
@@ -52,7 +52,7 @@ class TestCase(DjangoTestCase):
         return User.objects.create_user(username, email, password)
 
     def create_friendship(self, from_user, to_user):
-        return Friendship.objects.create(from_user=from_user, to_user=to_user)
+        return FriendshipService.follow(from_user.id, to_user.id)
 
     def create_tweet(self, user, content=None):
         if content is None:
