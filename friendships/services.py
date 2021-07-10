@@ -77,7 +77,7 @@ class FriendshipService(object):
     @classmethod
     def has_followed(cls, from_user_id, to_user_id):
         if from_user_id == to_user_id:
-            return True
+            return False
 
         if not GateKeeper.is_switch_on('switch_friendship_to_hbase'):
             return Friendship.objects.filter(
@@ -139,3 +139,10 @@ class FriendshipService(object):
         HBaseFollowing.delete(from_user_id=from_user_id, created_at=instance.created_at)
         HBaseFollower.delete(to_user_id=to_user_id, created_at=instance.created_at)
         return 1
+
+    @classmethod
+    def get_following_count(cls, from_user_id):
+        if not GateKeeper.is_switch_on('switch_friendship_to_hbase'):
+            return Friendship.objects.filter(from_user_id=from_user_id).count()
+        followings = HBaseFollowing.filter(prefix=(from_user_id, None))
+        return len(followings)
