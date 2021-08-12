@@ -4,6 +4,6 @@
 
 > 记得切换到 master 分支哦
 
-![image-20210812225121814](C:\Users\17293\AppData\Roaming\Typora\typora-user-images\image-20210812225121814.png)
+![image-20210812225121814](.\imgs\image-20210812225121814.png)
 
-![image-20210812225220907](C:\Users\17293\AppData\Roaming\Typora\typora-user-images\image-20210812225220907.png)
+![image-20210812225220907](.\imgs\image-20210812225220907.png)
