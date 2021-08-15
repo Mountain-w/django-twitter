@@ -3,6 +3,9 @@
 所有的教程都在 master 分支的 [tutorial_pdf](https://github.com/jiuzhangsuanfa-org/django-twitter/tree/master/tutorial_pdf) 文件夹中，同学们可以在每次使用教程前都执行一下 `git pull` 命令获取到最新的教程版本。
 
 > 记得切换到 master 分支哦
+> 
+> 
+> md 记得用 typora 打开，下载地址：https://typora.io/
 
 ![image-20210812225121814](.\imgs\image-20210812225121814.png)
 
