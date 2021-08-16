@@ -115,6 +115,11 @@ $ sudo systemctl restart docker
 ```
 
 ### Windows 10
+
+TIPS：如果是在`win10`中，在`2004`版本之前，`docker`都是基于`Hyper-V`，`2004`版本之后默认使用 `WSL 2` 来运行。
+
+> 如果你使用 windows 且还没有安装 WSL2，可以参考 [微软官方的教程](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10) 来配置 WSL2。记得要 WSL2 不是 WSL1
+
 对于使用 `Windows 10` 的用户，在任务栏托盘 `Docker` 图标内右键菜单选择 `Settings`，打开配置窗口后在左侧导航菜单选择 `Docker Engine`，在右侧像下边一样编辑 `json` 文件，之后点击 `Apply & Restart` 保存后 `Docker` 就会重启并应用配置的镜像地址了。
 
 ```json
@@ -187,11 +192,7 @@ nginx        latest    08b152afcfae   13 days ago   133MB
 
 `-v "source_path:dest_path"` 为我们创建宿主机和容器之间的共享文件夹。
 
-TIPS：
 
-如果是在`win10`中，在`2004`版本之前，`docker`都是基于`Hyper-V`，`2004`版本之后默认使用 `WSL 2` 来运行。
-
-> 如果你使用 windows 且还没有安装 WSL2，可以参考 [微软官方的教程](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10) 来配置 WSL2。记得要 WSL2 不是 WSL1
 
 如果是在`win10 2004`以及更高版本上使用的话，可以使用类似如下的方式挂载目录：
 
