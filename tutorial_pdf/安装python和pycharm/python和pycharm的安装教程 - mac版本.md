@@ -4,6 +4,8 @@
 
 ## 前言
 
+> 注意，这个安装的 python 是我们推特项目中用不到的，因为这里是教你怎么在宿主机上安装 python ，方便你学习 python 用的，项目中用的 python 是虚拟机中自带的 python
+
 ### 关于 Mac 中的 Python 解释器
 
 很多的 `Linux` 发行版都是自带 `Python` 解释器，比如 `Ubuntu18` 自带了 `python2.7` 和 `python3.6` 。同样的，Mac 系统自带了 `python2.7` ，所以当你在终端输入 `python` 的时候，便会出现看到如下一幕：

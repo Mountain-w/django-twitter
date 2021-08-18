@@ -2,7 +2,7 @@
 
 #  `python` 的安装和配置
 
-
+> 注意，这个安装的 python 是我们推特项目中用不到的，因为这里是教你怎么在宿主机上安装 python ，方便你学习 python 用的，项目中用的 python 是虚拟机中自带的 python
 
 ## 下载 `python` 
 
