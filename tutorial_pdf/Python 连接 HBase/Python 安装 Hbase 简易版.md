@@ -26,7 +26,7 @@ OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
 > E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
 > ```
 >
-> 如果在安装 jdk 的时候，可以先更新一下 apt 缓存：`sudo apt update  --fix-missing`，然后再重新执行 `sudo apt install openjdk-8-jdk`。
+> 如果在安装 jdk 的时候遇到上述错误，可以先更新一下 apt 缓存：`sudo apt update  --fix-missing`，然后再重新执行 `sudo apt install openjdk-8-jdk`。
 
 ### 配置 jdk 环境变量
 
@@ -38,7 +38,7 @@ OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee -a /etc/profile >/dev/null
 ```
 
-> 如果你当前使用的不是 bash （默认）而是其他 shell 的话，需要做出相应的修改。
+> 如果你当前使用的不是 bash 而是其他 shell 的话，需要做出相应的修改。（默认是 bash）
 >
 > 使用 `echo $0` 查看当前的 shell ，如果是 zsh ，使用 `echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee -a /etc/zsh/zshenv >/dev/null` 替代
 
